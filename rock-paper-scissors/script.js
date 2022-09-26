@@ -35,14 +35,16 @@ if (playerSelection != null && computerSelection != null) {
 let winnerIs; // variable for the winner 
 
 
-// Function to determine the winner (uncomplete - to be finished - doesn't run correctly yet). 
+// Function to determine the winner (uncomplete - additional conditionals to be added for game. Always returns "else" currently. 
 function round (playerSelection, computerSelection) { 
 
-    if (playerSelection === "rock" + computerSelection === "paper" ) { 
+    if (playerSelection === "rock" && computerSelection === "paper" ) { 
         return (winnerIs = "Player wins")
      } else { 
         return (winnerIs = "This was a draw. Try again to win!")
     }
 
 }
+winnerIs = round();
+
 console.log (`Winner? ${winnerIs}`);
