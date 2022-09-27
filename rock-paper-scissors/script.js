@@ -26,7 +26,6 @@ playerSelection = playerSelection.toLowerCase();  // This converts choice to all
 if (playerSelection != null) {
     console.log (`You chose ${playerSelection}.`)
 }
-
 // This section tells you what the player + computer choices are. 
 
 if (playerSelection != null && computerSelection != null) { 
@@ -63,3 +62,27 @@ function playRound (playerSelection, computerSelection) {
 winnerIs = playRound(playerSelection, computerSelection);
 
 console.log (winnerIs);
+
+// Loop to play game 4 more times, keep score + determine winner 
+
+
+
+function game() {
+    for (i = 0; i < 5; i++) { 
+        console.log (`round ${i+1}`)
+        playerSelection = prompt("Do you choose rock, paper or scissors?")
+        getComputerChoice(); 
+        playRound(playerSelection, computerSelection);
+        console.log (winnerIs)
+
+    }
+}
+
+
+
+// game (); 
+
+
+// }
+// console.log (winnerIs)
+// 
