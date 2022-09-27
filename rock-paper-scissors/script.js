@@ -34,17 +34,32 @@ if (playerSelection != null && computerSelection != null) {
 }
 let winnerIs; // variable for the winner 
 
-
 // Function to determine the winner (uncomplete - additional conditionals to be added for game. Always returns "else" currently. 
-function round (playerSelection, computerSelection) { 
+function playRound (playerSelection, computerSelection) { 
 
-    if (playerSelection === "rock" && computerSelection === "paper" ) { 
+    if (playerSelection === "rock" && computerSelection === "paper") { 
+        return (winnerIs =  "Computer wins")  
+    } 
+    else if (playerSelection === "rock" && computerSelection === "scissors") {
         return (winnerIs = "Player wins")
-     } else { 
-        return (winnerIs = "This was a draw. Try again to win!")
+    } 
+    else if (playerSelection === "paper" && computerSelection === "rock") {
+        return (winnerIs = "Player wins")
+      } 
+    else if (playerSelection === "paper" && computerSelection === "scissors") {
+        return (winnerIs = "Computer wins")
+    } 
+    else if (playerSelection === "scissors" && computerSelection === "rock") {
+        return (winnerIs = "Computer wins")
+    } 
+    else if (playerSelection === "scissors" && computerSelection === "paper") { 
+        return (winnerIs = "Player wins")
+    } 
+    else { 
+        return (winnerIs = "Draw. Try again to win!")
+    }
     }
 
-}
-winnerIs = round();
+winnerIs = playRound(playerSelection, computerSelection);
 
-console.log (`Winner? ${winnerIs}`);
+console.log (winnerIs);
