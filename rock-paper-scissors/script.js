@@ -5,6 +5,8 @@
 
 let computerSelection;
 
+console.log ("Game of paper scissors Rock. Enter your choice to start. >> Round 1")
+
 // Function getComputerChoice randomly selects input for Rock Paper Scissors 
 function getComputerChoice () {  
     if (Math.floor(Math.random()*3) === 0) { 
@@ -57,32 +59,49 @@ function playRound (playerSelection, computerSelection) {
     else { 
         return (winnerIs = "Draw. Try again to win!")
     }
-    }
-
+}
 winnerIs = playRound(playerSelection, computerSelection);
+console.log (winnerIs)
 
-console.log (winnerIs);
-
-// Loop to play game 4 more times, keep score + determine winner 
-
-
+let playerScore = 0; 
+let computerScore = 0;
+let draw = 0;
 
 function game() {
-    for (i = 0; i < 5; i++) { 
+    for (i = 1; i < 5; i++) { 
         console.log (`round ${i+1}`)
         playerSelection = prompt("Do you choose rock, paper or scissors?")
         getComputerChoice(); 
         playRound(playerSelection, computerSelection);
-        console.log (winnerIs)
-
+        
+        if (winnerIs === "Player wins") {
+            playerScore++
+        } 
+        else if (winnerIs === "Computer wins") { 
+            computerScore++ 
+        }
+        else {
+            draw++ 
+        }
+        console.log (winnerIs);
+        console.log (`Player score ${playerScore} ---------  Computer Score ${computerScore}`);
     }
 }
 
+function scoreDec () {
+    if (playerScore > computerScore) {
+        console.log ("You beat the computer at Rock, Paper, Scissors!");
+    }
 
+    else if (computerScore > playerScore ) {
+        console.log ("You lose! The computer won the game of Rock Paper Scissors")  
+    }
 
-// game (); 
+    else {
+        console.log ("You drew too many times - try again to beat the computer.")
+    }
+}
 
-
-// }
-// console.log (winnerIs)
-// 
+// Loop to play game 4 more times, keep score + determine winner 
+    game (); 
+    scoreDec ();
