@@ -3,9 +3,17 @@
 // When entering their choice, the computer will also make a choice 
 // A result will be drawn from answers 
 
+// Selection Variables 
 let computerSelection;
+let playerSelection;
+let winnerIs; // variable for the winner 
 
-console.log ("Game of paper scissors Rock. Enter your choice to start. >> Round 1")
+// Scoring Variables 
+let playerScore = 0; 
+let computerScore = 0;
+let draw = 0;
+
+console.log ("Game of paper scissors Rock. Enter your choice to start game.")
 
 // Function getComputerChoice randomly selects input for Rock Paper Scissors 
 function getComputerChoice () {  
@@ -18,24 +26,10 @@ function getComputerChoice () {
     } 
 };
 
+// Call computerSelection function 
 computerSelection = getComputerChoice();
 
-let playerSelection = prompt("Do you choose rock, paper or scissors?")
-playerSelection = playerSelection.toLowerCase();  // This converts choice to all lower case.
-
-// This section prints what the player choice is. 
-
-if (playerSelection != null) {
-    console.log (`You chose ${playerSelection}.`)
-}
-// This section tells you what the player + computer choices are. 
-
-if (playerSelection != null && computerSelection != null) { 
-    console.log (`The computer chose ${computerSelection}.`)
-}
-let winnerIs; // variable for the winner 
-
-// Function to determine the winner (uncomplete - additional conditionals to be added for game. Always returns "else" currently. 
+// Function to determine the winner 
 function playRound (playerSelection, computerSelection) { 
 
     if (playerSelection === "rock" && computerSelection === "paper") { 
@@ -60,17 +54,13 @@ function playRound (playerSelection, computerSelection) {
         return (winnerIs = "Draw. Try again to win!")
     }
 }
-winnerIs = playRound(playerSelection, computerSelection);
-console.log (winnerIs)
 
-let playerScore = 0; 
-let computerScore = 0;
-let draw = 0;
-
+// Function for 5 x round game 
 function game() {
-    for (i = 1; i < 5; i++) { 
+    for (i = 0; i < 5; i++) { 
         console.log (`round ${i+1}`)
         playerSelection = prompt("Do you choose rock, paper or scissors?")
+        playerSelection = playerSelection.toLowerCase(); 
         getComputerChoice(); 
         playRound(playerSelection, computerSelection);
         
@@ -84,10 +74,11 @@ function game() {
             draw++ 
         }
         console.log (winnerIs);
-        console.log (`Player score ${playerScore} ---------  Computer Score ${computerScore}`);
+        console.log (`Player score ${playerScore} ----- Computer Score ${computerScore}`);
     }
 }
 
+// function to determine winner
 function scoreDec () {
     if (playerScore > computerScore) {
         console.log ("You beat the computer at Rock, Paper, Scissors!");
@@ -102,6 +93,24 @@ function scoreDec () {
     }
 }
 
-// Loop to play game 4 more times, keep score + determine winner 
-    game (); 
-    scoreDec ();
+// Calling functions 
+
+game (); 
+scoreDec ();
+
+
+// Old code for 1 x game 
+
+// playerSelection = playerSelection.toLowerCase();  // This converts choice to all lower case.
+
+// This section prints what the player choice is. 
+
+// if (playerSelection != null) {
+//     console.log (`You chose ${playerSelection}.`)
+// }
+// This section tells you what the player + computer choices are. 
+
+// if (playerSelection != null && computerSelection != null) { 
+//     console.log (`The computer chose ${computerSelection}.`)
+// }
+
